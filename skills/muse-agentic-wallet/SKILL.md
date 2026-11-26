@@ -45,6 +45,12 @@ and revoke-after-transaction.
 - **Derivation**: `vault.derive(chain, index)` → `(address, priv)`. Same
   mnemonic derives every chain (EVM) and a Solana address (SLIP-0010,
   `m/44'/501'/0'/0'`). Wallet #0 is typically the main wallet.
+- **CLI invocation**: `python -m muse …` from the package directory. The CLI
+  defaults its vault/state paths to the current directory (`MUSE_HOME`), so
+  from anywhere else set `MUSE_HOME=<package>/state` and
+  `PYTHONPATH=<package>` (or wrap both in a small shell script). A system-wide
+  `pip install -e` works but may not survive environment rebuilds — don't
+  rely on it.
 - **Chains** (registry in `muse/chain.py`): `ethereum` (1), `base` (8453),
   `arbitrum` (42161), `optimism` (10), `polygon` (137), `bsc` (56),
   `sepolia` (11155111). Custom chains (e.g. Giwa Sepolia 91342) live in
